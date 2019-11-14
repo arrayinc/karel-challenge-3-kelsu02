@@ -8,7 +8,7 @@ The steps involved are to:
 2. Climb each of the four stair steps to reach the summit.
 3. Plant a flag (represented by a beeper, of course) at the top of the mountain.
 4. Climb down each of the four stair steps on the opposite side.
-5. Move forward to the east end of the world.
+5. Move forward to the east end of the world. 
 
 */
 
@@ -20,12 +20,20 @@ function moveToWall(){
 	}
 }
 
+function leftMove() {
+	turnLeft();
+	move();
+}
+
+function rightMove() {
+	turnRight();
+	move();
+}
+
 function climbStairs() {
-	while (frontIsBlocked() {
-		turnRight();
-		move();
-		turnRight();
-		move();
+	while (frontIsBlocked()) {
+		leftMove();
+		rightMove();
 	}
 }
 
@@ -35,14 +43,12 @@ function plantFlag() {
 
 function descendStairs() {
 	move();
-	turnLeft();
-	move();
-	while (frontIsBlocked) {
-		turnLeft();
-		move();
-		turnLeft();
-		move();
+	rightMove();
+	repeat(3) {
+		leftMove();
+		rightMove();
 	}
+	turnLeft();
 }
 
 function Solve() {
